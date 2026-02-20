@@ -48,3 +48,9 @@ https://arxiv.org/abs/1706.03762
 - 图片中的是旧的注意力计算公式，K=V，存在两个向量越相似则内容越重要这个先验假设
 ## 以往研究存在的问题
 改进都是基于RNN架构，所以只能串行计算，无法并行计算
+## Transformer架构
+![Transformer_Structure](Transformer_Structure.png)
+### Input
+- 分词器（Tokenizer）
+- 高维向量嵌入（Input Embedding）
+- 叠加token位置编码（Positional Encoding）
