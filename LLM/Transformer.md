@@ -43,3 +43,5 @@ https://arxiv.org/abs/1706.03762
 ![Attention](Attention.png)
 #### 改进
 - 对每一个token的重要性进行了调整，使得预测的token权重进行修改
+## 以往研究存在的问题
+改进都是基于RNN架构，所以只能串行计算，无法并行计算
