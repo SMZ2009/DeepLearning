@@ -42,8 +42,9 @@ https://arxiv.org/abs/1706.03762
 - 不同时间步的输入对输出的重要性相同，无法倾斜影响
 ### Attention
 ![Attention](Attention.png)
-![Attention_Formula](Attention_Formula.png)
 #### 改进
 - 生成每一个输出token时，动态计算输入序列各token的权重
+#### 问题
+- 图片中的是旧的注意力计算公式，K=V，存在两个向量越相似则内容越重要这个先验假设
 ## 以往研究存在的问题
 改进都是基于RNN架构，所以只能串行计算，无法并行计算
