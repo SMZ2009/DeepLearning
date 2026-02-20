@@ -16,6 +16,7 @@ https://arxiv.org/abs/1706.03762
 - 处理固定长度输入 → 固定长度输出的问题
 - 建立输入特征与输出之间的非线性映射关系
 #### 问题
+- 只能处理固定长度的输入与输出
 - 数据单向传播（无记忆能力）
 - 完全丢失顺序的信息
 ### RNN
@@ -25,23 +26,24 @@ https://arxiv.org/abs/1706.03762
 - 能够保留上下文信息
 - 能够支持不定长信息输入
 #### 问题
-- 长期记忆缺失
-- 输入输出长度必须一致
+- 长期记忆缺失（梯度消失/爆炸）
+- 输入输出长度必须一致（经典RNN）
+- 只能串行计算，无法并行计算
 ### Encoder-Decoder
 ![Encoder-Decoder.png](Encoder-Decoder.png)
 ![Encoder-Decoder_2.png](Encoder-Decoder_2.png)
 #### 解决
 - 处理输入序列长度 ≠ 输出序列长度的问题
-- 解决Seq2Seq（序列到序列）任务
 #### 改进
-- Encoder：把输入序列压缩成一个“上下文向量”
+- Encoder：把输入序列压缩成一个context vector
 - Decoder：根据该向量生成目标序列
 #### 问题
-- 处理长序列信息时会有遗忘
-- 不同时间步的输入对输出的重要性相同，无法进行影响性的倾斜
+- 处理长序列信息时会有遗忘（早期token信息被覆盖）
+- 不同时间步的输入对输出的重要性相同，无法倾斜影响
 ### Attention
 ![Attention](Attention.png)
+![Attention_Formula](Attention_Formula.png)
 #### 改进
-- 对每一个token的重要性进行了调整，使得预测的token权重进行修改
+- 生成每一个输出token时，动态计算输入序列各token的权重
 ## 以往研究存在的问题
 改进都是基于RNN架构，所以只能串行计算，无法并行计算
